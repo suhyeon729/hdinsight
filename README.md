@@ -4,6 +4,9 @@ hdinsight example
 This example is wordcount using hdinsight.
 
 
+1.Make new storage /n  
+DataServices-storage-quickcreate
+
 
 
 
