@@ -4,10 +4,10 @@ hdinsight example
 This example is wordcount using hdinsight.
 
 1.create a Storage account  
-DataServices-storage-quickcreate
+  DataServices-storage-quickcreate
 
 2.create a hdinsight clusster
-DataServices-hdinsight-hadoop
+  DataServices-hdinsight-hadoop
 
 3.download azure powershell
 http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
