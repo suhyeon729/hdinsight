@@ -10,4 +10,23 @@ http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 
 4.open azure powershell
 
-5.
+5.set variables
+$subscriptionName = "<SubscriptionName>"  
+$clusterName = "<ClusterName>"           
+
+6.mapreduce job definition
+$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+
+7.mapreduce 
+Select-AzureSubscription $subscriptionName
+$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600  
+
+8.Create the storage account context object
+$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+
+9.download mapreducejob output from blob
+Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+
+10.print output
+cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
