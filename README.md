@@ -15,9 +15,14 @@ This example is wordcount using hdinsight.
 
 http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 
+4.open azure powershell
+
+5.
+
 
 #Reference
 Micorosoft Azure
 
 1.http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/
 2.http://azure.microsoft.com/en-us/documentation/articles/hdinsight-sample-wordcount/
+3.http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-use-mapreduce-powershell/
